@@ -1,8 +1,8 @@
 package com.tutorial.userservice.service;
 
 import com.tutorial.userservice.entity.Userr;
-import com.tutorial.userservice.feignClient.BikeFeignClient;
-import com.tutorial.userservice.feignClient.CarFeignClient;
+import com.tutorial.userservice.feignclient.BikeFeignClient;
+import com.tutorial.userservice.feignclient.CarFeignClient;
 import com.tutorial.userservice.model.Bike;
 import com.tutorial.userservice.model.Car;
 import com.tutorial.userservice.repository.UserRepository;
@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -37,25 +36,21 @@ public class UserService {
     }
 
     public List<Car> getCars(int id){
-        List<Car> cars = restTemplate.getForObject("http://localhost:8002/car/byuser/" + id, List.class);
-        return cars;
+        return restTemplate.getForObject("http://car-service/car/byuser/" + id, List.class);
     }
 
     public List<Bike> getBikes(int id){
-        List<Bike> bikes = restTemplate.getForObject("http://localhost:8003/bike/byuser/" + id, List.class);
-        return bikes;
+        return restTemplate.getForObject("http://bike-service/bike/byuser/" + id, List.class);
     }
 
     public Car saveCar(int userId, Car car) {
         car.setUserId(userId);
-        Car carNew = carFeignClient.saveCar(car);
-        return carNew;
+        return carFeignClient.saveCar(car);
     }
 
     public Bike saveBike(int userId, Bike bike) {
         bike.setUserId(userId);
-        Bike bikeNew = bikeFeignClient.saveBike(bike);
-        return bikeNew;
+        return bikeFeignClient.saveBike(bike);
     }
 
     public Map<String, Object> getUserAndVehicles(int userId) {
