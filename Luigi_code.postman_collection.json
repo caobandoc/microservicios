@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "888f85ce-8ba9-4629-8ada-34c4ae32764e",
+		"name": "Luigi_code",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13791213"
+	},
+	"item": [
+		{
+			"name": "microservices",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "getAllUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserByIdAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/getAll/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"getAll",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"carlos\",\r\n    \"email\":\"caobandoc@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCarsByUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/cars/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"cars",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getBikesByUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bikes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bikes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveCar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"brand\":\"tesla\",\r\n    \"model\":\"s\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/savecar/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"savecar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveBike",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"brand\":\"Suzuki\",\r\n    \"model\":\"Gs\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/savebike/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"savebike",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"URL\", \"localhost:8001/user\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "car",
+					"item": [
+						{
+							"name": "getAllCars",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCarById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createCar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"brand\":\"Chevrolet\",\r\n    \"model\":\"cobalt\",\r\n    \"userId\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCarsByUserId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/byuser/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"byuser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"URL\", \"localhost:8002/car\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "bike",
+					"item": [
+						{
+							"name": "getAllBikes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getBikeById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createBike",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"brand\":\"Kawasaki\",\r\n    \"model\":\"ninja\",\r\n    \"userId\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCarsByUserId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/byuser/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"byuser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"URL\", \"localhost:8003/bike\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
